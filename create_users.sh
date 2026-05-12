@@ -9,3 +9,11 @@ if test $UID -ne 0; then
     # Exit with status 1 to indicate failure status
     exit 1
 fi
+
+# Loop through the arguments and get users one by one
+addUser() {
+    for user in "$@"; do
+        echo "Creating user: $user"
+    done
+}
+addUser "$@"
