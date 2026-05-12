@@ -2,9 +2,10 @@
 # Operating system uses shebang to understand which interpreter should run the script
 
 
-# Checks if user is the root user
+# Checks if the user is root
 if test $UID -ne 0; then
-    # Send message to user, if not root user exit script
-    echo "you do not have root access."
-    exit
+    # Print failure message and stop the script 
+    echo "You do not have root access."
+    # Exit with status 1 to indicate failure status
+    exit 1
 fi
