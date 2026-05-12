@@ -10,10 +10,12 @@ if test $UID -ne 0; then
     exit 1
 fi
 
-# Loop through the arguments and get users one by one
+# Loop through each username argument and handle users one by one
 addUser() {
     for user in "$@"; do
         echo "Creating user: $user"
+	# Create a new user and user's home directory with -m
+	useradd -m "$user"
     done
 }
 addUser "$@"
