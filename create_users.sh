@@ -13,9 +13,12 @@ fi
 # Loop through each username argument and handle users one by one
 addUser() {
     for user in "$@"; do
-        echo "Creating user: $user"
+        echo "Created user: $user"
 	# Create a new user and user's home directory with -m
 	useradd -m "$user"
+	# Create directories inside the user's home directory
+	# Use -p to create missing parent directories if needed 
+	mkdir -p "/home/$user/Documents" "/home/$user/Downloads" "/home/$user/Work"
     done
 }
 addUser "$@"
